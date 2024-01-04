@@ -29,6 +29,10 @@ const HeaderSection = styled.section`
       flex-direction: column;
       justify-content: space-evenly;
 
+      > button{
+          padding: 2rem 3rem;
+        }
+
       > .texts{
         display: flex;
         width: 100%;
@@ -38,7 +42,7 @@ const HeaderSection = styled.section`
 
        > h1{
         color: var(--txt-one);
-        font-size: clamp(2rem, 4.5rem, 4rem);
+        font-size: clamp(2rem, 5.5rem, 4rem);
         width: 35rem;
 
        > span{
