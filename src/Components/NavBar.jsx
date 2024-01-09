@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import logo from "/logo.png"
+import logo from "/logo.png";
 import Button from "./Button";
-import workImg from "/main-img.png"
+import workImg from "/main-img.png";
+import BurgerMenu from "./BurgerMenu";
 
 
 const HeaderSection = styled.section`
@@ -19,8 +20,7 @@ const HeaderSection = styled.section`
     display: flex;
     justify-content: space-around;
     padding: 1rem 10rem;
-    justify-content:center;
-    gap: 10rem;
+    gap: 3rem;
 
     > .info1{
       display: flex;
@@ -30,7 +30,9 @@ const HeaderSection = styled.section`
       justify-content: space-evenly;
 
       > button{
-          padding: 2rem 3rem;
+          padding: 2rem;
+          max-width: auto;
+          height: auto;
         }
 
       > .texts{
@@ -42,8 +44,17 @@ const HeaderSection = styled.section`
 
        > h1{
         color: var(--txt-one);
-        font-size: clamp(2rem, 5.5rem, 4rem);
+        font-size: 4rem;
         width: 35rem;
+
+        @media (max-width:1024px) {
+          font-size: 3.5rem;
+          text-wrap:nowrap;
+        }
+
+        @media (max-width:768px) {
+          font-size: 3rem;
+        }
 
        > span{
           font-weight: 700;
@@ -52,15 +63,33 @@ const HeaderSection = styled.section`
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
+
       }
 
       > p{
         color: var(--txt-two);
         font-size: 1.8rem;
-      }
+
+        @media (max-width:1024px) {
+          font-size: 1.5rem;
+        }
 
       }
 
+      @media (max-width:768px){
+        align-items: center;
+    }
+
+      }
+
+      @media (max-width:768px){
+        gap: 2rem;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
     }
 
     > .info-img{
@@ -69,11 +98,34 @@ const HeaderSection = styled.section`
       display: flex;
       align-items: center;
 
+
+
       > img {
         width: 100%;
         height: auto;
-        object-fit: cover;
+        object-fit: contain;
+
+      @media (max-width:768px){
+        width: 70%;
+        height: auto;
+    }
       }
+
+      @media (max-width:768px){
+        justify-content: center;
+        width: 100%;
+        height: auto;
+     }
+    }
+
+    @media (max-width:1024px){
+      padding: 1rem 5rem;
+    }
+    @media (max-width:768px){
+      padding: 1rem 10rem;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
     }
   }
 `
@@ -90,6 +142,7 @@ const Header = styled.div`
     width: auto;
     height: auto;
   }
+
   > .nav-links{
     display: flex;
     width: 100%;
@@ -102,24 +155,47 @@ const Header = styled.div`
     text-decoration: none;
     color:var(--txt-one);
   }
+
+  @media (max-width:768px){
+     display: none;
+    }
   } 
+
+  > .buttons{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+
+
+  @media (max-width:768px){
+      padding: 1rem 7rem;
+    }
 `
 
 function NavBar() {
   return ( 
     <HeaderSection>
-      <Header>
+      <Header id="navbar">
         <img src={logo} alt="Logo da página" title="Logo da página" />
 
         <div className="nav-links">
-          <a href="">Home</a>
+          <a href="#navbar">Home</a>
           <a href="">Sobre</a>
           <a href="">Serviços</a>
         </div>
-
+        
+        <div className="buttons">
         <Button>
           Contato
         </Button>
+
+        <BurgerMenu/>
+        </div>
+
+        
       </Header>
 
     <div className="outdoor">

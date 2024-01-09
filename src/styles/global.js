@@ -20,6 +20,7 @@ export default createGlobalStyle`
 
   --site-background:#F7F7FA;
   --component-background:#000;
+  --menu-mob-background:#1c1c1c;
   --button-background:#41873f;
 
 
@@ -42,5 +43,6 @@ body{
   height: 100%;
   width: 100%;
 }
+
 
 `
