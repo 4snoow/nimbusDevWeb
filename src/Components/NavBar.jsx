@@ -44,8 +44,8 @@ const HeaderSection = styled.section`
 
        > h1{
         color: var(--txt-one);
-        font-size: 4rem;
-        width: 35rem;
+        font-size: 5rem;
+        width: 100%;
 
         @media (max-width:1024px) {
           font-size: 3.5rem;
@@ -126,7 +126,12 @@ const HeaderSection = styled.section`
       flex-direction: column-reverse;
       align-items: center;
       justify-content: center;
+      margin-top: 6rem;
     }
+    @media screen and (max-width:480px){
+      padding: 1rem 2rem;
+
+      }
   }
 `
 
@@ -172,6 +177,8 @@ const Header = styled.div`
 
   @media (max-width:768px){
       padding: 1rem 7rem;
+      position: fixed;
+      z-index: 1000;
     }
 `
 
@@ -180,7 +187,7 @@ function NavBar() {
     <HeaderSection>
       <Header id="navbar">
         <img src={logo} alt="Logo da página" title="Logo da página" />
-
+        
         <div className="nav-links">
           <a href="#navbar">Home</a>
           <a href="">Sobre</a>

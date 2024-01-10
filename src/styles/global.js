@@ -33,6 +33,7 @@ export default createGlobalStyle`
   --txt-title-two:#41873F;
   --txt-title-three:#FFFFFF;
   --txt-title-four:#E7DAED;
+  --border-card:#41873F;
 
 }
 
