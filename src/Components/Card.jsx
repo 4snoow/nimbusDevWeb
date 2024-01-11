@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const CardBox = styled.div`
   display: flex;
   max-width: 30rem;
@@ -23,9 +24,11 @@ const CardBox = styled.div`
 // eslint-disable-next-line react/prop-types
 function Card ({children}) {
   return ( 
+
     <CardBox>
       {children}
     </CardBox>
+
    );
 }
 

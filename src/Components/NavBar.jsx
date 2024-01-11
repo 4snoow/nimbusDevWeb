@@ -4,7 +4,6 @@ import Button from "./Button";
 import workImg from "/main-img.png";
 import BurgerMenu from "./BurgerMenu";
 
-
 const HeaderSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -201,9 +200,9 @@ function NavBar() {
 
         <BurgerMenu/>
         </div>
-
         
       </Header>
+
 
     <div className="outdoor">
       <div className="info1">
@@ -217,10 +216,13 @@ function NavBar() {
       <div className="info-img">
         <img src={workImg} alt="Imagem de pessoas conversando e trabalhando" />
       </div>
+
     </div>
 
     </HeaderSection>
+
    );
+
 }
 
 export default NavBar;

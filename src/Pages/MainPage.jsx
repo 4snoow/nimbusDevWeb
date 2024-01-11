@@ -2,6 +2,7 @@ import Card from "../Components/Card";
 import NavBar from "../Components/NavBar";
 import styled from "styled-components";
 import Marquee from "react-fast-marquee";
+import UserReview from "../Components/UserReview";
 
 import dash from "/dashico.png";
 import codeico from "/codeico.png";
@@ -254,6 +255,7 @@ const Main = styled.main`
         >img:nth-child(1) {
           position: absolute;
           top:14rem;
+          display: none;
 
                     
         @media screen and (max-width:658px){
@@ -267,6 +269,7 @@ const Main = styled.main`
           right: 0;
           transform: scaleX(-1);
           -webkit-transform: scaleX(-1);
+          display: none;
 
           
         @media screen and (max-width:658px){
@@ -296,7 +299,14 @@ const Main = styled.main`
           color: var(--txt-footer);
           text-align: center;
           padding: 0 7rem;
+          display: none;
         }
+      }
+
+      > .users-review {
+        width: 100%;
+        height: auto;
+
       }
 
       @media screen and (max-width:768px){
@@ -317,6 +327,7 @@ function Mainpage () {
       <NavBar/>
     </header>      
       <Main>
+        
         <div className="services">
           <div className="title-service">
               <h2><strong>Nossos Serviços</strong></h2>
@@ -338,7 +349,6 @@ function Mainpage () {
             <h3>Connect Hub</h3>
             <p>A Website is an extension of yourself and we can help you to express it properly. Your website is your number one marketing asset because we live in a digital age.</p>
           </Card>
-
           </div>
         </div>
 
@@ -386,10 +396,13 @@ function Mainpage () {
             <h2>Por que os clientes adoram <br/> trabalhar conosco</h2>
             <p>Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.</p>
           </div>
-          <div className="users-review"></div>
+          <div className="users-review">
+              <UserReview />
+          </div>
         </div>
 
         </div>
+
 
 
       </Main>
