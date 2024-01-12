@@ -3,6 +3,8 @@ import Slider from "react-slick";
 
 import star from "/star-rate.png"
 import aspasico from "/aspasico.png";
+import rightArrow from "/arrow.png";
+
 
 
 import "slick-carousel/slick/slick.css"; 
@@ -16,6 +18,8 @@ const settings = {
        slidesToScroll: 1,
        rows: 1,
        slidesToRow: 1,
+       prevArrow: <ArrowPrev/>,
+       nextArrow: <ArrowNext/>,
        responsive :[
         {
           breakpoint:768,
@@ -174,6 +178,7 @@ justify-content: space-between;
 padding: 0 20%;
 /* padding: 1rem 25%; */
 margin-top: 2rem;
+gap: 1rem;
 
 
 > .profiles{
@@ -246,42 +251,52 @@ margin-top: 2rem;
   padding: 0 10%;
 }
 
+@media screen and (max-width:768px){
+  padding: 0 5%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 @media screen and (max-width:490px){
   padding: 0 5%;
 }
+
+`
+
+const RightArrow = styled.button`
+
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+
+  > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transform: rotate(180deg);
+
+  }
+
+` 
+const LeftArrow = styled.button`
+ width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+
+  > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 `
 
 
 function UserReview() {
   return ( 
     <>
-         <Slider {...settings}>
-        {/* {reviews.one.map((item,index) => {
-          return(
-            <>
-            <Div key={index}>
-            <div className="explaim-two">
-            <img src={aspasico} alt="Imagem aspas" />
-            <img src={aspasico} alt="Imagem aspas" />
-            <p>Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.</p>
-         </div>
-          </Div>
-
-          <Div key={index + 1}>
-            <div className="profiles">
-              <div className="file-pic">
-                <img src={item.image} alt="Foto de perfil do usuário" />
-              </div>
-              <div className="star">
-                <img src={star} alt="Imagem de estrelas - satisfação" />
-              </div>
-              <h4>{item.name}</h4>
-             </div>
-          </Div>
-          </>
-          )         
-        })} */}
-
+    <Slider {...settings}>
     {reviews.two.map((item,index)=>{
           return(
             <>
@@ -317,5 +332,32 @@ function UserReview() {
     </>
    );
 }
+
+function ArrowPrev(props){
+  // eslint-disable-next-line react/prop-types
+  const {onClick} = props;
+  return(
+    <>
+    <LeftArrow style={{background:'black', border:'none', position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', zIndex:"10" }} className="custom-prev-arrow" onClick={onClick}>
+      <img className="left"  src={rightArrow} alt="Flecha para esquerda" />
+    </LeftArrow>
+    </>
+  )
+}
+
+
+function ArrowNext(props){
+  // eslint-disable-next-line react/prop-types
+  const {onClick} = props;
+  return(
+    <>
+    <RightArrow style={{background:'black', border:'none',  position: 'absolute', right: '0', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', }} className="custom-next-arrow" onClick={onClick}>
+      <img className="right" src={rightArrow} alt="Flecha para direita" />
+    </RightArrow>
+    </>
+  )
+}
+
+
 
 export default UserReview;
