@@ -3,6 +3,7 @@ import logo from "/logo.png";
 import Button from "./Button";
 import workImg from "/main-img.png";
 import BurgerMenu from "./BurgerMenu";
+import { Fade } from "react-awesome-reveal";
 
 const HeaderSection = styled.section`
   display: flex;
@@ -28,7 +29,7 @@ const HeaderSection = styled.section`
       flex-direction: column;
       justify-content: space-evenly;
 
-      > button{
+      > div button{
           padding: 2rem;
           max-width: auto;
           height: auto;
@@ -41,7 +42,7 @@ const HeaderSection = styled.section`
         flex-direction: column;
         gap: 1rem;   
 
-       > h1{
+       > div h1{
         color: var(--txt-one);
         font-size: 5rem;
         width: 100%;
@@ -66,7 +67,7 @@ const HeaderSection = styled.section`
 
       }
 
-      > p{
+      > div p{
         color: var(--txt-two);
         font-size: 1.8rem;
 
@@ -97,9 +98,13 @@ const HeaderSection = styled.section`
       display: flex;
       align-items: center;
 
+      > div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-
-      > img {
+      > div img {
         width: 100%;
         height: auto;
         object-fit: contain;
@@ -189,8 +194,8 @@ function NavBar() {
         
         <div className="nav-links">
           <a href="#navbar">Home</a>
-          <a href="">Sobre</a>
-          <a href="">Serviços</a>
+          <a href="#about">Sobre</a>
+          <a href="#services">Serviços</a>
         </div>
         
         <div className="buttons">
@@ -202,21 +207,27 @@ function NavBar() {
         </div>
         
       </Header>
+  
 
 
     <div className="outdoor">
       <div className="info1">
         <div className="texts">
+      <Fade direction="left" ChildClassName="texts">
           <h1>Great <span>Product</span> is <br/>
             <strong>built by great</strong> <span>teams</span></h1>
           <p>We help build and manage a team of world-class developers <br/> to bring your vision to life</p>
-        </div>       
-        <Button>Entre em contato</Button>
+      </Fade>
+        </div> 
+        <Fade direction="left">
+          <Button>Entre em contato</Button>          
+        </Fade>      
       </div>
       <div className="info-img">
+        <Fade direction="right">
         <img src={workImg} alt="Imagem de pessoas conversando e trabalhando" />
+        </Fade>
       </div>
-
     </div>
 
     </HeaderSection>
