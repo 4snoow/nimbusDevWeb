@@ -500,6 +500,11 @@ const Footer = styled.footer`
         height: auto;
       }
     }
+
+    @media screen and (max-width:425px){
+      flex-wrap: wrap;
+      text-align: center;
+    }
   }
 
   > .foot-two{

@@ -5,6 +5,9 @@ import workImg from "/main-img.png";
 import BurgerMenu from "./BurgerMenu";
 import { Fade } from "react-awesome-reveal";
 
+import ellipse from "/ellipse.png";
+
+
 const HeaderSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -21,6 +24,16 @@ const HeaderSection = styled.section`
     justify-content: space-around;
     padding: 1rem 10rem;
     gap: 3rem;
+    position: relative;
+    overflow-y:clip;
+
+    > img{
+      position: absolute;
+      bottom: -4rem;
+      z-index: 0;
+      
+
+    }
 
     > .info1{
       display: flex;
@@ -163,6 +176,24 @@ const Header = styled.div`
     > a{
     text-decoration: none;
     color:var(--txt-one);
+    position: relative;
+    padding: 0 .5rem;
+    transition: all .3s;
+
+      &::after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        background-color: var(--txt-title-two);
+        height: 3px;
+        left: 0;
+        bottom: -10px;
+        transition: all .3s;
+      }
+
+      &:hover::after{
+        width: 100%;
+      }
   }
 
   @media (max-width:768px){
@@ -176,6 +207,15 @@ const Header = styled.div`
     align-items: center;
     width: auto;
     height: auto;
+
+
+    > button{
+
+      @media screen and (max-width:768px){
+      display: none;
+    }
+    }
+
   }
 
 
@@ -199,7 +239,7 @@ function NavBar() {
         </div>
         
         <div className="buttons">
-        <Button>
+        <Button className="contact-nav">
           Contato
         </Button>
 
@@ -211,20 +251,21 @@ function NavBar() {
 
 
     <div className="outdoor">
+      <img src={ellipse} alt="Esfera decorativa" />
       <div className="info1">
         <div className="texts">
-      <Fade direction="left" ChildClassName="texts">
+      <Fade  ChildClassName="texts">
           <h1>Great <span>Product</span> is <br/>
             <strong>built by great</strong> <span>teams</span></h1>
           <p>We help build and manage a team of world-class developers <br/> to bring your vision to life</p>
       </Fade>
         </div> 
-        <Fade direction="left">
+        <Fade>
           <Button>Entre em contato</Button>          
         </Fade>      
       </div>
       <div className="info-img">
-        <Fade direction="right">
+        <Fade >
         <img src={workImg} alt="Imagem de pessoas conversando e trabalhando" />
         </Fade>
       </div>

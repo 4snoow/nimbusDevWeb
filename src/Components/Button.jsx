@@ -12,6 +12,11 @@ const ButtonD = styled.button`
   color: var(--txt-one);
   border: none;
   cursor: pointer;
+  transition: all .3s;
+
+  &:hover{
+    background-color: #5d975c;
+  }
 `
 
 
