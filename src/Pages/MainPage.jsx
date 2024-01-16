@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Marquee from "react-fast-marquee";
 import UserReview from "../Components/UserReview";
 import { Fade } from "react-awesome-reveal";
+import Form from "../Components/Formulario";
 
 import dash from "/dashico.png";
 import codeico from "/codeico.png";
@@ -334,6 +335,7 @@ const Main = styled.main`
     justify-content: center;
     gap: 5.7rem;
     position: relative;
+    overflow: none;
 
     > .arrUp{
       position: absolute;
@@ -427,6 +429,29 @@ const Main = styled.main`
     
   }
 
+  > .contact{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 10rem 15rem;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--component-background);
+    position: relative;
+    overflow: clip;
+
+    > img{
+      position: absolute;
+      top: -4rem;
+      right: 50%;
+    }
+
+    @media screen and (max-width:768px){
+      padding: 4rem 5rem 15rem;
+    }
+  }
+
 `
 
 const Footer = styled.footer`
@@ -438,6 +463,7 @@ const Footer = styled.footer`
   background-color: var(--component-background);
   padding: 4rem 10rem 1rem;
   gap: 10rem;
+  border-top: 1px solid #292929;
 
 
   > .foot-one{
@@ -668,6 +694,11 @@ function Mainpage () {
             </Card>
             </Fade>
           </div>
+        </div>
+
+        <div className="contact" id="contact">      
+          <img src={ellipse} alt="Esfera decorativa" />
+          <Form/>       
         </div>
 
 

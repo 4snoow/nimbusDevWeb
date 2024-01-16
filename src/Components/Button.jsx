@@ -14,6 +14,12 @@ const ButtonD = styled.button`
   cursor: pointer;
   transition: all .3s;
 
+  > a{
+    color: var(--txt-one);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
   &:hover{
     background-color: #5d975c;
   }

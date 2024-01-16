@@ -208,7 +208,6 @@ const Header = styled.div`
     width: auto;
     height: auto;
 
-
     > button{
 
       @media screen and (max-width:768px){
@@ -239,8 +238,8 @@ function NavBar() {
         </div>
         
         <div className="buttons">
-        <Button className="contact-nav">
-          Contato
+        <Button  className="contact-nav">
+          <a href="#contact">Contato</a>
         </Button>
 
         <BurgerMenu/>
@@ -261,7 +260,9 @@ function NavBar() {
       </Fade>
         </div> 
         <Fade>
-          <Button>Entre em contato</Button>          
+          <Button>
+            <a href="#contact">Entre em contato</a>
+          </Button>          
         </Fade>      
       </div>
       <div className="info-img">
