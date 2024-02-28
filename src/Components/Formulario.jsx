@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { z } from "zod";
 
 const Div = styled.div`
   width: 100%;
@@ -89,6 +93,15 @@ const Div = styled.div`
 `
 
 function Form() {
+
+const FormDataSchema = z.object({
+  nome: z.string(),
+  email: z.string().email(),
+  message: z.string(),
+  phone: z.string(),
+  contacted: z.string(),
+});
+
 const [dataForm, setDataForm] = useState({
   nome:'',
   email:'',
@@ -97,31 +110,68 @@ const [dataForm, setDataForm] = useState({
   contacted:'',
 })
 
+const messageData = {
+  embeds:[
+    {
+      "type": "rich",
+      "title": `Formulário`,
+      "description": "",
+      "color": 0x00ff15,
+      "fields": [
+        {
+          "name": `Nome:`,
+          "value": dataForm.nome,
+          "inline": true
+        },
+        {
+          "name": `Email:`,
+          "value": dataForm.email,
+          "inline":true
+        },
+        {
+          "name": `WhatsApp`,
+          "value": dataForm.phone,
+          "inline": true
+        },
+        {
+          "name": `Por onde nos conheceu:`,
+          "value": dataForm.contacted
+        },
+        {
+          "name": `Mensagem:`,
+          "value": dataForm.message
+        }
+      ],
+      "image": {
+        "url": `https://images.unsplash.com/photo-1533750446969-255bbf191920?q=80&w=2040&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
+        "height": 100,
+        "width": 100
+      }
+    }
+  ]
+}
+
 const handleValue = (event) => {
   setDataForm((dataForm) =>({
     ...dataForm,[event.target.name]:event.target.value
   }))
 }
+
 const handleForm = async (event) => {
   event.preventDefault()
- 
+
   try {
-    const response = await fetch('http://localhost:300/enviar-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(dataForm),
-    });
-
-    if (response.ok) {
-      console.log('Submissão do formulário enviada com sucesso.');
-
-    } else {
-      console.error('Erro ao enviar submissão do formulário.');
-    }
+    FormDataSchema.parse(dataForm);
   } catch (error) {
-    console.error('Erro ao enviar submissão do formulário:', error.message);
+    toast.error("Erro nos dados do formulário. Verifique os campos.");
+    return
+  }
+
+  try {
+    await axios.post('https://discord.com/api/webhooks/1212384829539094620/uLeEwfj1UgrKBJbLsVj0ff8XCiP9uBjzBmpfSaMm2k4gfcKz7OLaJaVobgZwTdztntUr', messageData)
+    toast.success("Formulário enviado com sucesso!")
+  } catch (error) {
+    toast.error("Erro ao enviar formulário");
   }
 };
 
@@ -146,15 +196,15 @@ return (
     <div className="form-fields">
       <div>
         <label htmlFor="name">Nome</label>
-        <input name="nome" id="name" type="text" onChange={handleValue} />
+        <input required={true} name="nome" id="name" type="text" onChange={handleValue} />
       </div>
       <div>
         <label htmlFor="mail">E-mail</label>
-        <input name="email" id="mail" type="email" onChange={handleValue}/>
+        <input required={true} name="email" id="mail" type="email" onChange={handleValue}/>
       </div>
       <div>
         <label htmlFor="phone">WhatsApp</label>
-        <input name="phone" id="phone" type="tel" maxLength="15" onKeyUp={handlePhone}  onChange={handleValue}/>
+        <input required={true} name="phone" id="phone" type="tel" maxLength="15" onKeyUp={handlePhone}  onChange={handleValue}/>
       </div>
       {/* <div>
         <label htmlFor="cnpj">WhatsApp</label>
@@ -162,16 +212,28 @@ return (
       </div> */}
       <div>
         <label htmlFor="contacted">Por onde nos conheceu</label>
-        <input name="contacted" id="contacted" type="text" placeholder="WhatsApp, Facebook, Twitter..." onChange={handleValue} />
+        <input required={true} name="contacted" id="contacted" type="text" placeholder="WhatsApp, Facebook, Twitter..." onChange={handleValue} />
       </div>
       <div>
         <label htmlFor="message">Mensagem</label>
-        <textarea name="message" id="message"  cols="30" rows="10" onChange={handleValue}></textarea>
+        <textarea required={true} name="message" id="message"  cols="30" rows="10" onChange={handleValue}></textarea>
       </div>
     </div>
-    <button id="btn-submit" type="submit">Enviar</button>
+    <button  id="btn-submit" type="submit">Enviar</button>
     </form>
   </Fade>
+  <ToastContainer 
+  position="top-right"
+  autoClose={2000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="dark"
+/>
   </Div>
 );
 }

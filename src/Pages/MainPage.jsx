@@ -556,16 +556,16 @@ function Mainpage () {
     <>
     <header>
       <NavBar/>
-    </header>      
-      <Main>
-        
+    </header>   
+
+      <Main>  
         <div className="services" id="services">
           <div className="title-service">
               <h2><strong>Nossos Serviços</strong></h2>
           </div>
 
           <div className="card-service">
-            <Fade direction="up" duration={1000}>
+            <Fade triggerOnce={true} direction="up" duration={1000}>
           <Card>
             <img src={mobileico} alt="Icone de celular" />
             <h3>Connect Estoque</h3>
@@ -592,7 +592,7 @@ function Mainpage () {
           <div className="about-and-video">
           <img src={ellipse} alt="Imagem de uma esfera verde" />
             <div className="about-text">  
-            <Fade direction="left" childClassName="about-text"> 
+            <Fade triggerOnce={true} direction="left" childClassName="about-text"> 
               <h2>Sobre a Empresa</h2>
 
               <p>We <span>add development capacity</span> to tech teams. Our value isn’t limited to building teams but is equally distributed across the project lifecycle. We are a custom software development company that guarantees the successful delivery of your project.</p>
@@ -603,8 +603,8 @@ function Mainpage () {
             </div>
 
             {/* <div className="about-video"> */}
-            <Fade direction="right" className="about-video">
-              <iframe className="iframe" width="100%" height="100%" src="https://www.youtube.com/embed/LFOx-vmYrts?si=vpJszRlx-51nx9wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <Fade triggerOnce={true} direction="right" className="about-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/K87aFjB7Ff0?si=dcqb_ryxYNNyz1LS" title="YouTube video player" frameBorder="0"   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
             </Fade>           
             {/* </div> */}
           </div>
@@ -627,7 +627,7 @@ function Mainpage () {
 
         <div className="reviews">
           {/* <div className="explaim"> */}
-          <Fade direction="up" className="explaim">
+          <Fade triggerOnce={true} direction="up" className="explaim">
             {/* <img src={aspasico} alt="Imagem aspas" /> */}
             {/* <img src={aspasico} alt="Imagem aspas" /> */}
             <h2>Por que os clientes adoram <br/> trabalhar conosco</h2>
@@ -635,7 +635,7 @@ function Mainpage () {
           </Fade>
           {/* </div> */}
           <div className="users-review">
-            <Fade direction="up">
+            <Fade triggerOnce={true} direction="up">
               <UserReview />
             </Fade>
           </div>
@@ -652,7 +652,7 @@ function Mainpage () {
             </h2>
           </div>
           <div className="cases-card">
-            <Fade direction="left" >
+            <Fade triggerOnce={true} direction="left" >
             <Card>
               <div className="card-img">
                 <img src={rocketico} alt="Icone" />
@@ -673,7 +673,7 @@ function Mainpage () {
             </Card>
             </Fade>
 
-            <Fade direction="right">
+            <Fade triggerOnce={true} direction="right">
             <Card>
             <div className="card-img">
                 <img src={rocketico} alt="" />

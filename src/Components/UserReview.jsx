@@ -37,6 +37,7 @@ const reviews = {
   
   two: [
     {
+      id:0,
       rev: "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.",
       pictures: [
         {
@@ -62,6 +63,7 @@ const reviews = {
       ]
     },
     {
+      id:1,
       rev: "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.",
       pictures: [
         {
@@ -87,6 +89,7 @@ const reviews = {
       ]
     },
     {
+      id:2,
       rev: "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.",
       pictures: [
         {
@@ -112,6 +115,7 @@ const reviews = {
       ]
     },
     {
+      id:3,
       rev: "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.",
       pictures: [
         {
@@ -136,12 +140,7 @@ const reviews = {
         },
       ]
     },
-  
-  
 ]
-
-
-  
 }
 
 
@@ -334,7 +333,5 @@ function ArrowNext(props){
     </>
   )
 }
-
-
 
 export default UserReview;
