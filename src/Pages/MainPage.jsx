@@ -726,7 +726,7 @@ function Mainpage () {
 
         </div>
         <div className="foot-two">
-            <p>© 2023 Copyright by IK Developers. All rights reserved.</p>
+            <p>© 2023 Copyright by NimbusDev. All rights reserved.</p>
         </div>
       </Footer>
     </>

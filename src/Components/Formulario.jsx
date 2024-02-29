@@ -5,14 +5,22 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { z } from "zod";
+import illustration from '../../public/ffflurry.svg'
 
 const Div = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 3rem;
   position: relative;
+
+  > .fade{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index:10;
+  }
 
   > div h2{
     font-size: 3.5rem;
@@ -89,6 +97,14 @@ const Div = styled.div`
     gap: 3rem;
     width: auto;
     height: auto;
+  }
+
+  > .illustration{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    bottom:10rem;
+    z-index: 2;
   }
 `
 
@@ -190,9 +206,9 @@ const phoneMask = (value) => {
 
 return (    
   <Div>
-    <Fade triggerOnce={true} direction="left" cascade={true}>
-    <h2>Contato</h2>
+    <Fade className="fade" triggerOnce={true} direction="left">
     <form action="" onSubmit={handleForm}>
+    <h2>Contato</h2>
     <div className="form-fields">
       <div>
         <label htmlFor="name">Nome</label>
@@ -222,6 +238,12 @@ return (
     <button  id="btn-submit" type="submit">Enviar</button>
     </form>
   </Fade>
+
+  <div className="illustration">
+    <img src={illustration} alt="" />
+  </div>
+
+
   <ToastContainer 
   position="top-right"
   autoClose={2000}
